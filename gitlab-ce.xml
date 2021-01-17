@@ -58,8 +58,8 @@
   </Data>
   <Environment/>
   <WebUI>http://[IP]:[PORT:10080]</WebUI>
-  <Banner>https://raw.githubusercontent.com/tynor88/docker-templates/master/images/gitlab.png</Banner>
-  <Icon>https://raw.githubusercontent.com/tynor88/docker-templates/master/images/gitlab_small.png</Icon>
+  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Banner>
+  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Icon>
   <Network Default="bridge">bridge</Network>
   <Config Type="Port" Name="Web Interface Port (HTTP)" Target="10080" Default="9080" Mode="tcp" Display="always-hide" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">9080</Config>
   <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="10443" Default="9443" Mode="tcp" Display="always-hide" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">9443</Config>
