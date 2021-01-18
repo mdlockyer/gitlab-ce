@@ -33,7 +33,7 @@
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort><9022/HostPort>
+        <HostPort>9022</HostPort>
         <ContainerPort>22</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
