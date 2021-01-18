@@ -3,7 +3,7 @@
   <Beta>False</Beta>
   <Category>Backup: Cloud: Network:Web Productivity: Tools:</Category>
   <Date>2021-01-17</Date>
-  <Name>GitLab-CE</Name>
+  <Name>gitlab-ce</Name>
   <Description>GitLab Community Edition docker image based on the Omnibus package.
     [br][br]&#xD;
     [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
