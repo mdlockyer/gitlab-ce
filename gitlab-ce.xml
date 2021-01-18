@@ -16,7 +16,7 @@
   <Registry>https://hub.docker.com/r/gitlab/gitlab-ce/</Registry>
   <GitHub>https://github.com/gitlabhq/gitlabhq</GitHub>
   <Repository>gitlab/gitlab-ce</Repository>
-  <ExtraParams>--env GITLAB_OMNIBUS_CONFIG="external_url 'http://unraid:10080/'"</ExtraParams>
+  <ExtraParams></ExtraParams>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Networking>
@@ -56,7 +56,7 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:10080]</WebUI>
+  <WebUI>http://[IP]:[PORT:9080]</WebUI>
   <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Banner>
   <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Icon>
   <Network Default="bridge">bridge</Network>
