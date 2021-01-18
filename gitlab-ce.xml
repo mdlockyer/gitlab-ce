@@ -23,17 +23,17 @@
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort></HostPort>
-        <ContainerPort>9080</ContainerPort>
+        <HostPort>9080</HostPort>
+        <ContainerPort>80</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort></HostPort>
-        <ContainerPort>9443</ContainerPort>
+        <HostPort>9443</HostPort>
+        <ContainerPort>443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
-        <HostPort></HostPort>
+        <HostPort><9022/HostPort>
         <ContainerPort>22</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -60,8 +60,8 @@
   <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Banner>
   <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Icon>
   <Network Default="bridge">bridge</Network>
-  <Config Type="Port" Name="Web Interface Port (HTTP)" Target="9080" Default="9080" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">10080</Config>
-  <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="9443" Default="9443" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">10443</Config>
+  <Config Type="Port" Name="Web Interface Port (HTTP)" Target="80" Default="9080" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">10080</Config>
+  <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="443" Default="9443" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">10443</Config>
   <Config Type="Port" Name="SSH Port" Target="22" Default="9022" Mode="tcp" Display="always" Required="true" Description="This is GitLab's SSH port.">10022</Config>
   <Config Type="Path" Name="Config Storage Path" Target="/etc/gitlab" Default="/mnt/user/appdata/gitlab-ce/config" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its configuration files.">/mnt/user/appdata/gitlab-ce/config</Config>
   <Config Type="Path" Name="Application Data Storage Path" Target="/var/opt/gitlab" Default="/mnt/user/appdata/gitlab-ce/data" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its application data.">/mnt/user/appdata/gitlab-ce/data</Config>
