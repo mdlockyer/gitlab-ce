@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Beta>False</Beta>
+  <Category>Network:Web Network:Proxy Tools:</Category>
+  <Date>2021-01-21</Date>
+  <Name>NginxProxyManager</Name>
+  <Support>http://lime-technology.com/forum/index.php?topic=50362.0</Support>
+  <Registry>https://hub.docker.com/r/jc21/nginx-proxy-manager</Registry>
+  <Repository>jc21/nginx-proxy-manager</Repository>
+  <ExtraParams></ExtraParams>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>4443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8181</HostPort>
+        <ContainerPort>8181</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>22</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/NginxProxyManager</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8181]</WebUI>
+  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/NginxProxyManager-images/logo.png</Banner>
+  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/NginxProxyManager-images/logo.png</Icon>
+  <Network Default="bridge">bridge</Network>
+  <Config Type="Port" Name="HTTP Port" Target="8080" Default="80" Mode="tcp" Display="always" Required="true" Description="The HTTP port used by the reverse proxy server.">8080</Config>
+  <Config Type="Port" Name="HTTPS Port" Target="4443" Default="443" Mode="tcp" Display="always" Required="true" Description="The HTTPS port used by the reverse proxy server.">4443</Config>
+  <Config Type="Port" Name="SSH Port" Target="22" Default="22" Mode="tcp" Display="always" Required="true" Description="This is GitLab's SSH port.">22</Config>
+  <Config Type="Path" Name="Config Storage Path" Target="/config" Default="/mnt/user/appdata/NginxProxyManager" Mode="rw" Display="always" Required="true" Description="This is where Nginx Proxy Manager will store its configuration files.">/mnt/user/appdata/NginxProxyManager</Config>
+</Container>

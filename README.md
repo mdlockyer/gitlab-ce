@@ -12,7 +12,7 @@ You can pre-configure the GitLab container by adding the environment variable `G
 
 Here's an example for configuring GitLab to use an external URL using the `GITLAB_OMNIBUS_CONFIG` environment variable in Unraid's `Extra Parameters` field:
 
-`--hostname my.domain.com --env GITLAB_OMNIBUS_CONFIG="external_url 'http://my.domain.com/';"`
+`--hostname <my.domain.com> --env GITLAB_OMNIBUS_CONFIG="external_url '<https://my.domain.com/>'; letsencrypt['enable'] = false"; nginx['listen_port'] = 80`
 
 More information about pre-configuring the GitLab Docker container can be found [here](https://docs.gitlab.com/omnibus/docker/#use-tagged-versions-of-gitlab)
 
