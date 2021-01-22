@@ -49,5 +49,6 @@
   <Config Type="Port" Name="HTTP Port" Target="8080" Default="80" Mode="tcp" Display="always" Required="true" Description="The HTTP port used by the reverse proxy server.">80</Config>
   <Config Type="Port" Name="HTTPS Port" Target="4443" Default="443" Mode="tcp" Display="always" Required="true" Description="The HTTPS port used by the reverse proxy server.">443</Config>
   <Config Type="Port" Name="SSH Port" Target="22" Default="22" Mode="tcp" Display="always" Required="true" Description="The SSH port used by the reverse proxy server.">22</Config>
+  <Config Type="Port" Name="WebUI Port" Target="8181" Default="8181" Mode="tcp" Display="always" Required="true" Description="The SSH port used by the reverse proxy server.">8181</Config>
   <Config Type="Path" Name="Config Storage Path" Target="/config" Default="/mnt/user/appdata/NginxProxyManager" Mode="rw" Display="always" Required="true" Description="This is where Nginx Proxy Manager will store its configuration files.">/mnt/user/appdata/NginxProxyManager</Config>
 </Container>
