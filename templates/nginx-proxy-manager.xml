@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Beta>False</Beta>
+  <Category>Network:Web Network:Proxy Tools:</Category>
+  <Date>2021-01-21</Date>
+  <Name>nginx-proxy-manager</Name>
+  <Support>http://lime-technology.com/forum/index.php?topic=50362.0</Support>
+  <Registry>https://hub.docker.com/r/jc21/nginx-proxy-manager</Registry>
+  <Repository>jc21/nginx-proxy-manager</Repository>
+  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/nginx-proxy-manager/logo.png</Banner>
+  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/nginx-proxy-manager/logo.png</Icon>
+  <ExtraParams></ExtraParams>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <WebUI>http://[IP]:[PORT:81]</WebUI>
+  <Network Default="bridge">bridge</Network>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8181</HostPort>
+        <ContainerPort>81</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/NginxProxyManager/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/NginxProxyManager/data</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/NginxProxyManager/etc/letsencrypt</HostDir>
+      <ContainerDir>/etc/letsencrypt</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>DB_MYSQL_HOST</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DB_MYSQL_PORT</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DB_MYSQL_USER</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DB_MYSQL_PASSWORD</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>DB_MYSQL_NAME</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Config Type="Port" Name="HTTP Port" Target="8080" Default="80" Mode="tcp" Display="always" Required="true" Description="The HTTP port used by the reverse proxy server.">80</Config>
+  <Config Type="Port" Name="HTTPS Port" Target="4443" Default="443" Mode="tcp" Display="always" Required="true" Description="The HTTPS port used by the reverse proxy server.">443</Config>
+  <Config Type="Port" Name="WebUI Port" Target="8181" Default="8181" Mode="tcp" Display="always" Required="true" Description="The SSH port used by the reverse proxy server.">8181</Config>
+  <Config Type="Path" Name="Config Path" Target="/config" Default="/mnt/user/appdata/NginxProxyManager/config" Mode="rw" Display="always" Required="true" Description="This is where Nginx Proxy Manager will store its configuration files.">/mnt/user/appdata/NginxProxyManager/config</Config>
+  <Config Type="Path" Name="Data Path" Target="/data" Default="/mnt/user/appdata/NginxProxyManager/data" Mode="rw" Display="always" Required="true" Description="This is where Nginx Proxy Manager will store its data files.">/mnt/user/appdata/NginxProxyManager/data</Config>
+  <Config Type="Path" Name="Let's Encrypt Path" Target="/etc/letsencrypt" Default="/mnt/user/appdata/NginxProxyManager/etc/letsencrypt" Mode="rw" Display="always" Required="true" Description="This is where Nginx Proxy Manager will store its Let's Encrypt files.">/mnt/user/appdata/NginxProxyManager/etc/letsencrypt</Config>
+  <Config Type="Variable" Name="DB_MYSQL_HOST" Target="DB_MYSQL_HOST" Default="" Description="The host address of your MySQL database." Mask="false" Display="always" Required="true"></Config>
+  <Config Type="Variable" Name="DB_MYSQL_PORT" Target="DB_MYSQL_PORT" Default="" Description="The port for your MySQL database." Mask="false" Display="always" Required="true"></Config>
+  <Config Type="Variable" Name="DB_MYSQL_USER" Target="DB_MYSQL_USER" Default="" Description="The user to use when accessing your MySQL database." Mask="false" Display="always" Required="true"></Config>
+  <Config Type="Variable" Name="DB_MYSQL_PASSWORD" Target="DB_MYSQL_PASSWORD" Default="" Description="The password for the MySQL user provided above." Mask="true" Display="always" Required="true"></Config>
+  <Config Type="Variable" Name="DB_MYSQL_NAME" Target="DB_MYSQL_NAME" Default="" Description="The name address of your MySQL database." Mask="false" Display="always" Required="true"></Config>
+</Container>

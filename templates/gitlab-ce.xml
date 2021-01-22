@@ -57,8 +57,8 @@
     </Volume>
   </Data>
   <WebUI>http://[IP]:[PORT:9080]</WebUI>
-  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Banner>
-  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/gitlab-ce-images/gitlab.png</Icon>
+  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Banner>
+  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Icon>
   <Network Default="bridge">bridge</Network>
   <Config Type="Port" Name="Web Interface Port (HTTP)" Target="80" Default="9080" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">9080</Config>
   <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="443" Default="9443" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">9443</Config>
