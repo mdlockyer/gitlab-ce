@@ -1,24 +1,22 @@
 <?xml version="1.0"?>
 <Container version="2">
+
   <Beta>False</Beta>
   <Category>Backup: Cloud: Network:Web Productivity: Tools:</Category>
   <Date>2021-01-17</Date>
   <Name>gitlab-ce</Name>
-  <Description>GitLab Community Edition docker image based on the Omnibus package.
-    [br][br]&#xD;
-    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-    [b]/etc/gitlab[/b] For storing the GitLab configuration files[br]
-    [b]/var/opt/gitlab[/b] For storing application data[br]
-    [b]/var/log/gitlab[/b] For storing logs[br]
-  </Description>
   <Overview>GitLab Community Edition docker image based on the Omnibus package.</Overview>
   <Support>http://lime-technology.com/forum/index.php?topic=50362.0</Support>
   <Registry>https://hub.docker.com/r/gitlab/gitlab-ce/</Registry>
-  <GitHub>https://github.com/gitlabhq/gitlabhq</GitHub>
+  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Banner>
+  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Icon>
   <Repository>gitlab/gitlab-ce</Repository>
   <ExtraParams></ExtraParams>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <WebUI>http://[IP]:[PORT:9080]</WebUI>
+  <Network Default="bridge">bridge</Network>
+
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -39,6 +37,7 @@
       </Port>
     </Publish>
   </Networking>
+
   <Data>
     <Volume>
       <HostDir>/mnt/user/appdata/gitlab-ce/config</HostDir>
@@ -56,14 +55,22 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <WebUI>http://[IP]:[PORT:9080]</WebUI>
-  <Banner>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Banner>
-  <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/gitlab.png</Icon>
-  <Network Default="bridge">bridge</Network>
+
+  <Environment>
+    <Variable>
+      <Name>GITLAB_OMNIBUS_CONFIG</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+
   <Config Type="Port" Name="Web Interface Port (HTTP)" Target="80" Default="9080" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">9080</Config>
   <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="443" Default="9443" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">9443</Config>
   <Config Type="Port" Name="SSH Port" Target="22" Default="9022" Mode="tcp" Display="always" Required="true" Description="This is GitLab's SSH port.">9022</Config>
+
   <Config Type="Path" Name="Config Storage Path" Target="/etc/gitlab" Default="/mnt/user/appdata/gitlab-ce/config" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its configuration files.">/mnt/user/appdata/gitlab-ce/config</Config>
   <Config Type="Path" Name="Application Data Storage Path" Target="/var/opt/gitlab" Default="/mnt/user/appdata/gitlab-ce/data" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its application data.">/mnt/user/appdata/gitlab-ce/data</Config>
   <Config Type="Path" Name="Log Storage Path" Target="/var/log/gitlab" Default="/mnt/user/appdata/gitlab-ce/log" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its logs.">/mnt/user/appdata/gitlab-ce/log</Config>
+
+  <Config Type="Variable" Name="GITLAB_OMNIBUS_CONFIG" Target="GITLAB_OMNIBUS_CONFIG" Default="" Description="You can pre-configure the GitLab Docker image by adding the environment variable GITLAB_OMNIBUS_CONFIG to Docker run command. This variable can contain any gitlab.rb setting and is evaluated before the loading of the container’s gitlab.rb file. This behavior allows you to configure the external GitLab URL, and make database configuration or any other option from the Omnibus GitLab template. The settings contained in GITLAB_OMNIBUS_CONFIG aren’t written to the gitlab.rb configuration file, and are evaluated on load." Mask="false" Display="always" Required="false"></Config>
+
 </Container>
