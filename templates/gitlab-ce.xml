@@ -31,6 +31,11 @@
         <Protocol>tcp</Protocol>
       </Port>
       <Port>
+        <HostPort>9444</HostPort>
+        <ContainerPort>5005</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
         <HostPort>9022</HostPort>
         <ContainerPort>22</ContainerPort>
         <Protocol>tcp</Protocol>
@@ -65,6 +70,7 @@
 
   <Config Type="Port" Name="Web Interface Port (HTTP)" Target="80" Default="9080" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI port you can access via a web browser.">9080</Config>
   <Config Type="Port" Name="Web Interface Port (HTTPS)" Target="443" Default="9443" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Web UI SSL port you can access via a web browser.">9443</Config>
+  <Config Type="Port" Name="Container Registry Port" Target="5005" Default="9444" Mode="tcp" Display="always" Required="true" Description="This is GitLab's Container Registry Port.">9444</Config>
   <Config Type="Port" Name="SSH Port" Target="22" Default="9022" Mode="tcp" Display="always" Required="true" Description="This is GitLab's SSH port.">9022</Config>
 
   <Config Type="Path" Name="Config Storage Path" Target="/etc/gitlab" Default="/mnt/user/appdata/gitlab-ce/config" Mode="rw" Display="always" Required="true" Description="This is where GitLab will store its configuration files.">/mnt/user/appdata/gitlab-ce/config</Config>
