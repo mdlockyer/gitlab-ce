@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="1">
+
+    <Date>2021-26-05</Date>
+    <Beta>False</Beta>
+    <Name>portainer-ce</Name>
+    <Project>https://www.portainer.io/</Project>
+    <Overview>Portainer is a lightweight management UI which allows you to easily manage Docker.</Overview>
+    <Registry>https://registry.hub.docker.com/u/portainer/portainer-ce</Registry>
+    <Repository>portainer/portainer-ce</Repository>
+    <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/portainer.png</Icon>
+    <BindTime>true</BindTime>
+    <Privileged>false</Privileged>
+    <WebUI>http://[IP]:[PORT:9000]/</WebUI>
+    <Network Default="bridge">bridge</Network>
+
+    <Networking>
+        <Mode>bridge</Mode>
+        <Publish>
+            <Port>
+                <HostPort>9000</HostPort>
+                <ContainerPort>9000</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+            <Port>
+                <HostPort>8000</HostPort>
+                <ContainerPort>8000</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+        </Publish>
+    </Networking>
+
+    <Data>
+        <Volume>
+            <HostDir>/mnt/user/appdata/portainer-ce</HostDir>
+            <ContainerDir>/data</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir>/var/run/docker.sock</HostDir>
+            <ContainerDir>/var/run/docker.sock</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+    </Data>
+
+    <Environment>
+    <Variable>
+      <Name>VIRTUAL_HOST</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+
+    <Config Type="Port" Name="Web Interface Port (HTTP)" Target="9000" Default="9000" Mode="tcp" Display="always-visible" Required="true" Description="This is Portainer's Web UI port you can access via a web browser.">9000</Config>
+    <Config Type="Port" Name="Remote Agent Port" Target="8000" Default="8000" Mode="tcp" Display="always-visible" Required="true" Description="This is Portainer's remote agent instruction polling port">8000</Config>
+
+    <Config Type="Path" Name="Config Storage Path" Target="/data" Default="/mnt/user/appdata/portainer-ce" Mode="rw" Display="always-visible" Required="true" Description="This is where Portainer will store its databases and configuration.">/mnt/user/appdata/portainer-ce</Config>
+    <Config Type="Path" Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Display="advanced-hide" Required="true" Description="This is needed for Portainer to connect to Docker.">/var/run/docker.sock</Config>
+
+    <Config Type="Variable" Name="VIRTUAL_HOST" Target="VIRTUAL_HOST" Default="" Description="If Portainer will run behind a domain name, specify that domain here." Mask="false" Display="always" Required="false"></Config>
+
+</Container>
