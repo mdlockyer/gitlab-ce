@@ -8,7 +8,7 @@
     <Overview>Portainer is a lightweight management UI which allows you to easily manage Docker.</Overview>
     <Registry>https://registry.hub.docker.com/u/portainer/portainer-ce</Registry>
     <Repository>portainer/portainer-ce</Repository>
-    <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/gitlab-ce/portainer.png</Icon>
+    <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/portainer-ce/portainer.png</Icon>
     <BindTime>true</BindTime>
     <Privileged>false</Privileged>
     <WebUI>http://[IP]:[PORT:9000]/</WebUI>
