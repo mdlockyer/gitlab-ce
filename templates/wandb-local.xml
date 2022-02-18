@@ -16,21 +16,21 @@
 
     <Networking>
         <Mode>bridge</Mode>
-        <Publish>
+        <!-- <Publish>
             <Port>
                 <HostPort>8080</HostPort>
                 <ContainerPort>8080</ContainerPort>
                 <Protocol>tcp</Protocol>
             </Port>
-        </Publish>
+        </Publish> -->
     </Networking>
 
     <Data>
-        <Volume>
+        <!-- <Volume>
             <HostDir>/mnt/user/appdata/wandb-local</HostDir>
             <ContainerDir>/vol</ContainerDir>
             <Mode>rw</Mode>
-        </Volume>
+        </Volume> -->
     </Data>
 
     <Environment>
