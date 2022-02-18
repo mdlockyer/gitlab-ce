@@ -28,22 +28,13 @@
     <Data>
         <Volume>
             <HostDir>/mnt/user/appdata/wandb-local</HostDir>
-            <ContainerDir>/data</ContainerDir>
-            <Mode>rw</Mode>
-        </Volume>
-        <Volume>
-            <HostDir>/var/run/docker.sock</HostDir>
-            <ContainerDir>/var/run/docker.sock</ContainerDir>
+            <ContainerDir>/vol</ContainerDir>
             <Mode>rw</Mode>
         </Volume>
     </Data>
 
     <Environment>
-    <Variable>
-      <Name>VIRTUAL_HOST</Name>
-      <Value></Value>
-    </Variable>
-  </Environment>
+    </Environment>
 
     <Config Type="Port" Name="Web Interface Port (HTTP)" Target="8080" Default="8080" Mode="tcp" Display="always-visible" Required="true" Description="This is the wandb Web UI and client  data port">8080</Config>
 
