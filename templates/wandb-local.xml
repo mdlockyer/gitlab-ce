@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="1">
+
+    <Date>2022-17-02</Date>
+    <Beta>False</Beta>
+    <Name>wandb-local</Name>
+    <Project>https://wandb.ai/site</Project>
+    <Overview>A developer first MLOps platform.</Overview>
+    <Registry>https://hub.docker.com/r/wandb/local</Registry>
+    <Repository>wandb/local</Repository>
+    <Icon>https://raw.githubusercontent.com/mdlockyer/unraid-templates/master/icons/wandb-local/wandb-logo.png</Icon>
+    <BindTime>true</BindTime>
+    <Privileged>false</Privileged>
+    <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+    <Network Default="bridge">bridge</Network>
+
+    <Networking>
+        <Mode>bridge</Mode>
+        <Publish>
+            <Port>
+                <HostPort>8080</HostPort>
+                <ContainerPort>8080</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+        </Publish>
+    </Networking>
+
+    <Data>
+        <Volume>
+            <HostDir>/mnt/user/appdata/wandb-local</HostDir>
+            <ContainerDir>/data</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir>/var/run/docker.sock</HostDir>
+            <ContainerDir>/var/run/docker.sock</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+    </Data>
+
+    <Environment>
+    <Variable>
+      <Name>VIRTUAL_HOST</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+
+    <Config Type="Port" Name="Web Interface Port (HTTP)" Target="8080" Default="8080" Mode="tcp" Display="always-visible" Required="true" Description="This is the wandb Web UI and client  data port">8080</Config>
+
+    <Config Type="Path" Name="Data Path" Target="/vol" Default="/mnt/user/appdata/wandb-local" Mode="rw" Display="always-visible" Required="true" Description="This is where wandb will store its data and configuration.">/mnt/user/appdata/wandb-local</Config>
+
+</Container>
