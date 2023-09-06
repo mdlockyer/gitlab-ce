@@ -14,76 +14,40 @@
     <WebUI>http://[IP]:[PORT:6900]/</WebUI>
     <Network Default="bridge">bridge</Network>
 
-    <Networking>
-        <Mode>bridge</Mode>
-        <Publish>
-            <Port>
-                <HostPort>6900</HostPort>
-                <ContainerPort>6900</ContainerPort>
-                <Protocol>tcp</Protocol>
-            </Port>
-        </Publish>
-    </Networking>
+    <Config Type="Port" Name="Web Interface Port (HTTP)" Target="6900" Default="6900" Mode="tcp"
+        Display="always-visible" Required="true"
+        Description="This is Argilla's Web UI port you can access via a web browser.">6900</Config>
 
-    <Data>
-        <Volume>
-            <HostDir>/mnt/user/appdata/argilla</HostDir>
-            <ContainerDir>/data</ContainerDir>
-            <Mode>rw</Mode>
-        </Volume>
-    </Data>
+    <Config Type="Path" Name="Config Storage Path" Target="/data"
+        Default="/mnt/user/appdata/argilla" Mode="rw" Display="always-visible" Required="true"
+        Description="This is where Argilla will store its data and configuration."></Config>
 
-    <Environment>
-    <Variable>
-      <Name>OWNER_USERNAME</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>OWNER_PASSWORD</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>OWNER_API_KEY</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>ADMIN_USERNAME</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>ADMIN_PASSWORD</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>ADMIN_API_KEY</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>ANNOTATOR_USERNAME</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>ANNOTATOR_PASSWORD</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>LOAD_DATASETS</Name>
-      <Value></Value>
-    </Variable>
-  </Environment>
-
-    <Config Type="Port" Name="Web Interface Port (HTTP)" Target="6900" Default="6900" Mode="tcp" Display="always-visible" Required="true" Description="This is Argilla's Web UI port you can access via a web browser.">6900</Config>
-
-    <Config Type="Path" Name="Config Storage Path" Target="/data" Default="/mnt/user/appdata/argilla" Mode="rw" Display="always-visible" Required="true" Description="This is where Argilla will store its data and configuration.">/mnt/user/appdata/argilla</Config>
-
-    <Config Type="Variable" Name="OWNER_USERNAME" Target="OWNER_USERNAME" Default="" Description="The owner username to log in Argilla. The default owner username is owner." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="OWNER_PASSWORD" Target="OWNER_PASSWORD" Default="" Description="This sets a custom password for login into the app with the owner username. The default password is 12345678." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="OWNER_API_KEY" Target="OWNER_API_KEY" Default="" Description="Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don't set this variable, the library and your app will use the default API key i.e. owner.apikey." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="ADMIN_USERNAME" Target="ADMIN_USERNAME" Default="" Description="The admin username to log in Argilla. The default admin username is admin." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="ADMIN_PASSWORD" Target="ADMIN_PASSWORD" Default="" Description="This sets a custom password for login into the app with the argilla username. The default password is 12345678." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="ADMIN_API_KEY" Target="ADMIN_API_KEY" Default="" Description="Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don’t set this variable, the library and your app will use the default API key i.e. admin.apikey." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="ANNOTATOR_USERNAME" Target="ANNOTATOR_USERNAME" Default="" Description="The annotator username to login in Argilla. The default annotator username is argilla. By setting up a custom username you can use your own username to login into the app." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="ANNOTATOR_PASSWORD" Target="ANNOTATOR_PASSWORD" Default="" Description="This sets a custom password for login into the app with the argilla username. The default password is 12345678." Mask="false" Display="always" Required="false"></Config>
-    <Config Type="Variable" Name="LOAD_DATASETS" Target="LOAD_DATASETS" Default="" Description="This variables will allow you to load sample datasets. The default value will be full." Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="OWNER_USERNAME" Target="OWNER_USERNAME" Default=""
+        Description="The owner username to log in Argilla. The default owner username is owner."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="OWNER_PASSWORD" Target="OWNER_PASSWORD" Default=""
+        Description="This sets a custom password for login into the app with the owner username. The default password is 12345678."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="OWNER_API_KEY" Target="OWNER_API_KEY" Default=""
+        Description="Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don't set this variable, the library and your app will use the default API key i.e. owner.apikey."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="ADMIN_USERNAME" Target="ADMIN_USERNAME" Default=""
+        Description="The admin username to log in Argilla. The default admin username is admin."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="ADMIN_PASSWORD" Target="ADMIN_PASSWORD" Default=""
+        Description="This sets a custom password for login into the app with the argilla username. The default password is 12345678."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="ADMIN_API_KEY" Target="ADMIN_API_KEY" Default=""
+        Description="Argilla provides a Python library to interact with the app (read, write, and update data, log model predictions, etc.). If you don’t set this variable, the library and your app will use the default API key i.e. admin.apikey."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="ANNOTATOR_USERNAME" Target="ANNOTATOR_USERNAME" Default=""
+        Description="The annotator username to login in Argilla. The default annotator username is argilla. By setting up a custom username you can use your own username to login into the app."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="ANNOTATOR_PASSWORD" Target="ANNOTATOR_PASSWORD" Default=""
+        Description="This sets a custom password for login into the app with the argilla username. The default password is 12345678."
+        Mask="false" Display="always" Required="false"></Config>
+    <Config Type="Variable" Name="LOAD_DATASETS" Target="LOAD_DATASETS" Default=""
+        Description="This variables will allow you to load sample datasets. The default value will be full."
+        Mask="false" Display="always" Required="false"></Config>
 
 </Container>
